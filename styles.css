@@ -45,7 +45,7 @@ body{
 .boardDivGreen{
     color:aliceblue ;
     background:  rgb(47, 57, 79);
-    animation: fadeBackground 2.5s;
+    animation: fadeBackground 1s;
     animation-fill-mode: forwards;
 }
 @keyframes fadeBackground {
@@ -72,9 +72,9 @@ body{
     opacity: 0%;
     text-align: center;
 
-    animation: fadeIn 2s;
+    animation: fadeIn 1s;
     animation-fill-mode: forwards;
-    animation-delay: 2s;
+    animation-delay: .95s;
 
 }
 @keyframes fadeIn {
@@ -99,3 +99,22 @@ body{
     
 }
 
+@media only screen and (max-width: 355px){
+    .winDiv{
+        margin-top: -85vh;
+        height: 120vh;
+    }
+    #container{
+        width: 330px;
+        height: 330px;
+    }
+    .boardDiv{
+        width: 85px;
+        height: 85px;
+        padding: 5px;
+        line-height: 85px;
+    }
+
+
+
+}

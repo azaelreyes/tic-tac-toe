@@ -1,4 +1,3 @@
-
 const gameBoard = {
     board: ['', '', '',   // 0  1  2
             '', '', '',   // 3  4  5
@@ -8,12 +7,10 @@ const gameBoard = {
     winningCombos: [
     [0, 1, 2],[3, 4, 5], [6, 7, 8],  //horizontal
     [0, 3, 6],[1, 4, 7], [2, 5, 8],  //vertical
-    [0, 4, 8],[6, 7, 8] ]            //diagonal
+    [0, 4, 8] ,[2, 4, 6]]  //diagonal
 
 };
-
 //Use an event listener to add classes/create divs for each board item.
-
 const containerDiv = document.getElementById("container");
 
 function renderBoard(){
@@ -26,8 +23,6 @@ function renderBoard(){
 
 const mainGameRules = document.getElementById("mainGameRules");
 let marker =true;
-
-
 let player1Arr=[];
 let player2Arr=[];
 //adds marker when boardDiv is clicked & adds index to array of each player, also checks winning combos
@@ -51,19 +46,14 @@ function markerAdderOnBoard(){
             if (checkForWinningCombos(player1Arr, gameBoard.winningCombos)) {
                 mainGameRules.innerHTML="X Wins!";
                 winningScreen("Player 1");
-                //run reset function
             } else if(checkForWinningCombos(player2Arr, gameBoard.winningCombos)) {
                 mainGameRules.innerHTML="O Wins!";
-                //run wining screen
                 winningScreen("Player 2");
-                //run reset function
             }
-                
             }, {once: true}); //allows event listener to only run once, 
                             // in other words, a box can only be chosen once.
         });
     };
-
 
 
 
@@ -97,16 +87,13 @@ function winningScreen(player){
     winDiv.appendChild(winSign);
     winDiv.appendChild(clickReset);
     winSign.innerHTML = player + " has won!";
-    clickReset.innerHTML="Click anywhere on screen to play again!";
+    clickReset.innerHTML="Click anywhere on the screen to play again!";
     winDiv.addEventListener("click", () => {
         resetGame();
     } )
 };
 
 function resetGame(){
-    document.querySelectorAll(".boardDivGreen").forEach(element =>{
-        element.classList.remove("boardDivGreen");
-    });
     document.querySelectorAll(".boardDiv").forEach(element =>{
         element.remove();
     });
@@ -114,6 +101,7 @@ function resetGame(){
     document.querySelector(".winDiv").remove();
     player1Arr=[];
     player2Arr=[];
+    marker=true;
     renderBoard();
     markerAdderOnBoard();
 };
