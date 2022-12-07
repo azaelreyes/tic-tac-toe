@@ -1,0 +1,93 @@
+body{
+    background-color:rgb(47, 57, 79);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+#container{
+    background-color: rgb(93, 126, 154);
+    width: 390px;
+    height:390px;
+
+    display: flex;
+    flex-wrap: wrap;
+    position:relative;
+    margin: auto;
+    justify-content: center;
+    border: solid 3px black;
+    border-radius: 5%;
+    padding: 5px;
+
+    
+}
+
+.boardDiv{
+    background-color: rgb(47, 57, 79);
+    border: solid 3px black;
+    height: 110px;
+    width: 110px;
+    margin: auto;
+    text-align: center;
+    line-height: 110px;
+    font-size:300%;
+    color: aliceblue;
+    font-weight:bolder;
+    border-radius: 10%;
+}
+
+.boardDiv:hover{
+    background-color: rgb(69, 78, 97);
+}
+
+.boardDivGreen{
+    color:aliceblue ;
+    background:  rgb(47, 57, 79);
+    animation: fadeBackground 2.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeBackground {
+    from { background-color:  rgb(47, 57, 79);
+        color:  aliceblue; }
+    to { background-color:greenyellow; 
+        color:rgb(47, 57, 79)}
+  }
+
+#mainGameRules{
+    color:aliceblue;
+    text-align: center;
+    position:relative;
+    padding-bottom: 5vh;
+    padding-top: 10vh;
+}
+
+.winDiv{
+    background-color: aliceblue;
+    position: absolute;
+    margin-top: -66vh;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0%;
+    text-align: center;
+
+    animation: fadeIn 2s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+
+}
+@keyframes fadeIn {
+    from { opacity: 0%;}
+    to { opacity: 80%; }
+  }
+
+.winSign{
+    color: rgb(47, 57, 79);
+    font-weight:bolder;
+    font-size:10ch;
+    opacity: 100%;
+    line-height: 70vh;
+
+}
+
