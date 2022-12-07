@@ -16,7 +16,6 @@ const gameBoard = {
 
 const containerDiv = document.getElementById("container");
 
-
 function renderBoard(){
     gameBoard.board.forEach(element => {
         const newDiv = document.createElement("div");
@@ -68,11 +67,6 @@ function markerAdderOnBoard(){
 
 
 
-
-//game being run here.
-renderBoard();
-markerAdderOnBoard();
-
 function checkForWinningCombos(playerArr, winningCombos){  
     for (let x = 0; x < winningCombos.length; x++) {
         let combo = winningCombos[x];
@@ -97,11 +91,33 @@ function winningScreen(player){
     document.body.appendChild(winDiv);
     const winSign = document.createElement("h1");
     winSign.classList.add("winSign");
+    const clickReset = document.createElement("p");
+    clickReset.classList.add("clickReset");
+    winDiv.appendChild(clickReset);
     winDiv.appendChild(winSign);
+    winDiv.appendChild(clickReset);
     winSign.innerHTML = player + " has won!";
+    clickReset.innerHTML="Click anywhere on screen to play again!";
+    winDiv.addEventListener("click", () => {
+        resetGame();
+    } )
 };
 
-function resetScreen(){
-
+function resetGame(){
+    document.querySelectorAll(".boardDivGreen").forEach(element =>{
+        element.classList.remove("boardDivGreen");
+    });
+    document.querySelectorAll(".boardDiv").forEach(element =>{
+        element.remove();
+    });
+    mainGameRules.innerHTML="Player 1, make your move."
+    document.querySelector(".winDiv").remove();
+    player1Arr=[];
+    player2Arr=[];
+    renderBoard();
+    markerAdderOnBoard();
 };
 
+//game being run here.
+renderBoard();
+markerAdderOnBoard();

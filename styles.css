@@ -87,7 +87,15 @@ body{
     font-weight:bolder;
     font-size:10ch;
     opacity: 100%;
-    line-height: 70vh;
+    margin-top: 30vh;
+   
 
+}
+
+.clickReset{
+    color: rgb(47, 57, 79);
+    font-size: 3ch;
+    margin-top: 5vh;
+    
 }
 
